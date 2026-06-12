@@ -1,0 +1,355 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+<div class="menu" data-theme="dark" data-active="true">
+  <aside class="sidebar">
+    <div class="menu-drag" title="Drag to move the menu">
+      <i class="fas fa-grip-vertical"></i>
+      <span>KirCraft Client</span>
+    </div>
+    <div class="search-input">
+      <i class="fas fa-search"></i>
+      <input type="text" class="juice search" placeholder="Search..." />
+    </div>
+    <div class="sep"></div>
+    <div class="tab-group">
+      <div data-tab="ui" class="juice tab active">
+        <i class="fas fa-tv"></i>
+        UI
+      </div>
+      <div data-tab="performance" class="juice tab">
+        <i class="fas fa-tachometer-alt"></i>
+        Performance
+      </div>
+      <div data-tab="client" class="juice tab">
+        <i class="fas fa-cog"></i>
+        Client
+      </div>
+      <div data-tab="about" class="juice tab">
+        <i class="fas fa-circle-info"></i>
+        About
+      </div>
+    </div>
+    <div class="footer">
+      <span class="keybind"></span>
+      <span class="sep"></span>
+      <div class="bottom">
+        <span class="ver"></span>
+        <span class="user"></span>
+      </div>
+    </div>
+  </aside>
+  <div class="content">
+    <div id="ui-options" class="juice options active">
+      <div class="option-group">
+        <div class="option">
+          <span>Enable CSS</span>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="css_enabled"
+              data-setting="css_enabled"
+            />
+            <label for="css_enabled"></label>
+          </div>
+        </div>
+        <div class="option">
+          <span>CSS Link</span>
+          <input
+            type="text"
+            placeholder="https://.../.css"
+            data-setting="css_link"
+          />
+        </div>
+        <div class="option dropdown">
+          <div class="top">
+            <i class="fas fa-angle-down"></i>
+            <span>Quick CSS</span>
+          </div>
+          <div class="content">
+            <textarea
+              placeholder="input css here"
+              data-setting="advanced_css"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="performance-options" class="juice options">
+      <div class="option-group">
+        <div class="option requires-restart">
+          <span>Unlimited FPS</span>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="unlimited_fps"
+              data-setting="unlimited_fps"
+            />
+            <label for="unlimited_fps"></label>
+          </div>
+        </div>
+        <div class="option requires-restart">
+          <span>In Process GPU</span>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="in_process_gpu"
+              data-setting="in_process_gpu"
+            />
+            <label for="in_process_gpu"></label>
+          </div>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="option requires-restart">
+          <span>Auto Fullscreen</span>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="auto_fullscreen"
+              data-setting="auto_fullscreen"
+            />
+            <label for="auto_fullscreen"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="client-options" class="juice options">
+      <div class="option-group">
+        <div class="option requires-restart">
+          <div class="left">
+            <span>Discord Activity</span>
+            <span class="description">
+              Display KirCraft Client as your Discord activity
+            </span>
+          </div>
+          <div class="checkbox">
+            <input
+              type="checkbox"
+              id="discord_rpc"
+              data-setting="discord_rpc"
+            />
+            <label for="discord_rpc"></label>
+          </div>
+        </div>
+        <div class="option custom">
+          <div class="left">
+            <span>Menu Toggle Keybind</span>
+            <span class="description">
+              Customizable keybind to toggle the menu
+            </span>
+          </div>
+          <button class="juice change-keybind"></button>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="option">
+          <span>Menu Theme</span>
+          <select id="menu_theme" data-setting="menu_theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="juice">Juice</option>
+            <option value="inverted-juice">Inverted Juice</option>
+            <option value="nameless">Nameless</option>
+            <option value="kirka-arena">Kirka Arena</option>
+            <option value="kirka">Kirka</option>
+            <option value="catppuccin-mocha">Catppuccin Mocha</option>
+            <option value="flexoki">Flexoki</option>
+            <option value="legacy">Legacy</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Menu Opacity</span>
+            <span class="description">Make the menu background see-through</span>
+          </div>
+          <div class="range-wrap">
+            <input
+              type="range"
+              min="20"
+              max="100"
+              class="range"
+              data-setting="menu_opacity"
+            />
+            <span class="range-value" data-unit="%"></span>
+          </div>
+        </div>
+      </div>
+      <div id="custom-theme-options" class="option-group">
+        <div class="option">
+          <div class="left">
+            <span>Background Color</span>
+            <span class="description">Base color of the menu</span>
+          </div>
+          <input type="color" data-setting="custom_theme_bg" />
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Text Color</span>
+            <span class="description">Color of labels and values</span>
+          </div>
+          <input type="color" data-setting="custom_theme_text" />
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Accent Color</span>
+            <span class="description">Toggles, sliders and highlights</span>
+          </div>
+          <input type="color" data-setting="custom_theme_accent" />
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Border Color</span>
+            <span class="description">Outlines and separators</span>
+          </div>
+          <input type="color" data-setting="custom_theme_border" />
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Danger Color</span>
+            <span class="description">Destructive actions like reset</span>
+          </div>
+          <input type="color" data-setting="custom_theme_danger" />
+        </div>
+        <div class="option">
+          <span>Menu Font</span>
+          <select data-setting="custom_theme_font">
+            <option value="satoshi">Satoshi</option>
+            <option value="inter">Inter</option>
+            <option value="poppins">Poppins</option>
+            <option value="montserrat">Montserrat</option>
+            <option value="jetbrains-mono">JetBrains Mono</option>
+            <option value="press-start-2p">Press Start 2P</option>
+            <option value="custom">Uploaded font</option>
+          </select>
+        </div>
+        <div class="option">
+          <div class="left">
+            <span>Custom Font File</span>
+            <span class="description" id="custom-font-status">None uploaded</span>
+          </div>
+          <div class="font-buttons">
+            <button id="upload-custom-font" class="juice-button">
+              <span class="text">Upload</span>
+              <div class="custom-border"></div>
+            </button>
+            <button id="remove-custom-font" class="juice-button">
+              <span class="text">Remove</span>
+              <div class="custom-border"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="option requires-restart">
+          <span>Proxy URL</span>
+          <select id="base_url" data-setting="base_url">
+            <option value="https://kircraft.io/">
+              kircraft.io
+            </option>
+            <option value="https://kircraft.lukeskywalk.com/">
+              kircraft.lukeskywalk.com
+            </option>
+            <option value="http://localhost:5173/">
+              localhost
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="option">
+          <button id="open-swapper-folder" class="juice-button">
+            <span class="text">Open Swapper Folder</span>
+            <div class="custom-border"></div>
+          </button>
+          <button id="open-scripts-folder" class="juice-button">
+            <span class="text">Open Scripts Folder</span>
+            <div class="custom-border"></div>
+          </button>
+        </div>
+        <div class="option">
+          <button id="import-settings" class="juice-button">
+            <span class="text">Import Settings</span>
+            <div class="custom-border"></div>
+          </button>
+          <button id="export-settings" class="juice-button">
+            <span class="text">Export Settings</span>
+            <div class="custom-border"></div>
+          </button>
+        </div>
+        <div class="option">
+          <button id="reset-juice-settings" class="juice-button large">
+            <span class="text">Reset KirCraftClient Settings</span>
+            <span class="description"> This action cannot be undone</span>
+            <div class="custom-border"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="about-client" class="juice options">
+      <div class="option-group">
+        <div class="about-top header">
+          <img src="https://kirka.lukeskywalk.com/static/kircraft.png" />
+          <div class="about-info">
+            <span class="title">KirCraft Client</span>
+            <div class="about-more">
+              <div>
+                <span class="ver"></span>
+                <span class="author">by skywalk</span>
+              </div>
+              <div class="about-buttons">
+                <a
+                  href="https://discord.gg/jPgezmpNwm"
+                  target="_blank"
+                  class="about-discord"
+                >
+                  <i class="fab fa-discord"></i>
+                  <div class="custom-border"></div>
+                </a>
+                <a
+                  href="https://github.com/skywalk1411/kircraftclient"
+                  target="_blank"
+                  class="about-github"
+                >
+                  <i class="fab fa-github"></i>
+                  <div class="custom-border"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="about-top compact">
+          <img src="https://kirka.lukeskywalk.com/static/irrvlo_k.png" />
+          <div class="about-info compact">
+            <span class="title">KirkaTrades</span>
+            <div class="about-more">
+              <div></div>
+              <div class="about-buttons">
+                <a href="https://kirka.lukeskywalk.com" class="about-kirkatools alt" target="_blank">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                  <p>Check it out!</p>
+                  <div class="custom-border"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="option-group">
+        <div class="credits">
+          <span class="title">A special thanks to these people!</span>
+          <p>- <a href="https://github.com/irrvlo" target="_blank">irrvlo</a> for making <a href="https://github.com/irrvlo/juice-client" target="_blank">Juice client</a> where this clone come from.</p>
+          <p>- Juice client <a href="https://discord.gg/FjzAAdSjng" target="_blank">discord </a>.</p>
+          <p>
+            - <a href="https://github.com/SheriffCarry" target="_blank">CarrySheriff</a> for the foundational client work this is built on.
+          </p>
+          <p>- xip for various features and help.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "default_settings": {
+    "unlimited_fps": false,
+    "in_process_gpu": false,
+    "auto_fullscreen": true,
+    "discord_rpc": true,
+    "css_link": "",
+    "css_enabled": false,
+    "advanced_css": "",
+    "menu_keybind": "ShiftRight",
+    "menu_theme": "dark",
+    "menu_opacity": "100",
+    "custom_theme_bg": "#141414",
+    "custom_theme_text": "#ffffff",
+    "custom_theme_accent": "#ff932d",
+    "custom_theme_border": "#ffffff",
+    "custom_theme_danger": "#ff0000",
+    "custom_theme_font": "satoshi",
+    "custom_theme_custom_font": "",
+    "base_url": "https://kircraft.io/"
+  },
+  "allowed_urls": [
+    "https://kircraft.io/",
+    "https://kircraft.lukeskywalk.com/",
+    "http://localhost:5173/"
+  ]
+}

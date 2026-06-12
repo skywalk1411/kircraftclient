@@ -1,0 +1,36 @@
+{
+  "name": "kircraftclient",
+  "version": "1.0.0",
+  "description": "Electron client for KirCraft",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npm run compile && electron .",
+    "compile": "tsc && npm run copy-assets",
+    "copy-assets": "copyfiles -u 1 \"src/assets/**/*\" dist/ && copyfiles -u 1 \"src/util/defaults.json\" dist/",
+    "compile:prod": "tsc && npm run copy-assets && node scripts/minify.js",
+    "build": "npm run compile:prod && electron-builder",
+    "dev": "npm run compile && electron .",
+    "icons": "node make-icons.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skywalk1411/kircraftclient.git"
+  },
+  "keywords": [],
+  "author": "skywalk",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "copyfiles": "^2.4.1",
+    "electron": "^41.0.0",
+    "electron-builder": "^26.0.0",
+    "terser": "^5.44.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "electron-localshortcut": "^3.2.1",
+    "electron-store": "^8.2.0",
+    "v8-compile-cache": "^2.4.0"
+  }
+}

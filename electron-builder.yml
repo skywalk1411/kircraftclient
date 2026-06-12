@@ -1,0 +1,34 @@
+appId: xyz.skywalk.kircraftclient
+productName: KirCraftClient
+directories:
+  output: "build"
+files:
+  - "dist/**/*"
+  - "package.json"
+  - "!src/**/*"
+  - "!tsconfig.json"
+  - "!*.ts"
+npmRebuild: false
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
+  icon: "dist/assets/img/icon.ico"
+  artifactName: "${name}-setup-win-${arch}-${version}.${ext}"
+mac:
+  target: dmg
+  icon: "dist/assets/img/icon.icns"
+  artifactName: "${name}-setup-mac-${arch}-${version}.${ext}"
+linux:
+  target:
+    - AppImage
+    - tar.gz
+  category: Game
+  icon: "dist/assets/img/icon.png"
+  artifactName: "${name}-${version}-linux-${arch}.${ext}"
+publish:
+  provider: github
+  owner: skywalk1411
+  repo: kircraftclient
